@@ -12,6 +12,10 @@ license: GPL1
 // Hooks a los que unir acciones
 // https://adambrown.info/p/wp_hooks/hook
 
+// Añadimos ancho por defecto de embebidos
+if ( ! isset ( $content_width) )
+    $content_width = 800;
+
 // Mostrar solo en la parte de Administracion (wp-admin)
 if (is_admin()){
     echo "Im Administrator";
@@ -32,19 +36,21 @@ add_shortcode( "banner", function($atts, $content){
 });
 
 
-// mine() convierte "rock" en "iron ore"
-// refinery() convierte "iron ore" en "steel"
-function mine($material)
-{
-    return 'iron ore';
-}
+// // mine() convierte "rock" en "iron ore"
+// // refinery() convierte "iron ore" en "steel"
+// function mine($material)
+// {
+//     return 'iron ore';
+// }
 
-function refinery($material){
-    return 'steel';
-}
+// function refinery($material){
+//     return 'steel';
+// }
 
-add_filter('steelmaking', 'mine');
+// add_filter('steelmaking', 'mine');
 
-add_filter('steelmaking', 'refinery');
+// add_filter('steelmaking', 'refinery');
 
-echo apply_filters('steelmaking','rock');
+// echo apply_filters('steelmaking','rock');
+
+load_theme_textdomain( 'myfirsttheme', get_template_directory() . '/languages' );
